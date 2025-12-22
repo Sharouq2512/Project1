@@ -252,3 +252,90 @@ WHERE M_Id NOT IN (
     SELECT DISTINCT M_Id
     FROM Loan
 );
+
+--JOIN Queries
+--1. Display library ID, name, and the name of the manager.
+SELECT L.Library_Id, L.LName, S.FName AS ManagerName ,S.Position
+FROM Libraries L
+JOIN Staff S ON L.Library_Id = S.FLibrary_Id
+WHERE S.Position = 'Manager';
+
+--2. Display library names and the books available in each one.
+SELECT L.LName, B.BTitle
+FROM Libraries L
+JOIN Book B ON L.Library_Id = B.FLibrary_Id
+WHERE B.Av_Status = 'TRUE';
+
+--3. Display all member data along with their loan history.
+SELECT M.*, L.Loan_ID, L.Loan_Date, L.Due_Date, L.Return_Date, L.LStatus
+FROM Members M
+LEFT JOIN Loan L ON M.M_Id = L.FM_Id;
+
+--4. Display all books located in 'Zamalek' or 'Downtown'.
+SELECT B.*
+FROM Book B
+JOIN Libraries L ON B.FLibrary_Id = L.Library_Id
+WHERE L.L_Location IN ('Sur', 'Sohar');
+
+Select * from Book
+Select * from Libraries
+Select * from Loan
+Select * from Loan_Member_Book
+Select * from Members
+Select * from Payment
+Select * from Reviews
+Select * from Staff
+
+--5. Display all books whose titles start with 'T'.
+SELECT *
+FROM Book
+WHERE BTitle LIKE 'S%';
+
+--6. List members who borrowed books priced between 100 and 300 LE.
+SELECT DISTINCT M.M_Id, M.FName
+FROM Members M
+JOIN Loan L ON M.M_Id = L.FM_Id
+JOIN Book B ON L.FB_Id = B.B_Id
+WHERE B.Price BETWEEN 16 AND 26;
+
+--7. Retrieve members who borrowed and returned books titled 'The Alchemist'.
+SELECT DISTINCT M.M_Id, M.FName
+FROM Members M
+JOIN Loan L ON M.M_Id = L.FM_Id
+JOIN Book B ON L.FB_Id = B.B_Id
+WHERE B.BTitle = 'History of Oman'
+  AND L.Return_Date IS NOT NULL;
+
+
+--8. Find all members assisted by librarian "Sarah Fathy".
+SELECT DISTINCT M.M_Id, M.FName
+FROM Members M
+JOIN Loan L ON M.M_Id = L.FM_Id
+JOIN Book B ON L.FB_Id = B.B_Id
+JOIN Staff S ON B.FLibrary_Id = S.FLibrary_Id
+WHERE S.FName = 'Sarah Fathy';
+
+--9. Display each member’s name and the books they borrowed, ordered by book title.
+SELECT M.FName, B.BTitle
+FROM Members M
+JOIN Loan L ON M.M_Id = L.FM_Id
+JOIN Book B ON L.FB_Id = B.B_Id
+ORDER BY B.BTitle;
+
+--10. For each book located in 'Cairo Branch', show title, library name, manager, and shelf info.
+SELECT B.BTitle, L.LName, S.FName AS ManagerName, B.Shelf_Loc
+FROM Book B
+JOIN Libraries L ON B.FLibrary_Id = L.Library_Id
+JOIN Staff S ON L.Library_Id = S.FLibrary_Id
+WHERE L.LName = 'Cairo Branch'
+  AND S.Position = 'Manager';
+
+--11. Display all staff members who manage libraries.
+SELECT S.*
+FROM Staff S
+WHERE S.Position = 'Manager';
+
+--12. Display all members and their reviews, even if some didn’t submit any review yet
+SELECT M.M_Id, M.FName, R.R_Date, R.Comments, R.Rating
+FROM Members M
+LEFT JOIN Reviews R ON M.M_Id = R.FM_Id;
