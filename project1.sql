@@ -114,80 +114,107 @@ ON UPDATE NO ACTION,
 primary key (FLoan_ID,FM_Id, FP_Id)
 )
 -----------------------------------------------------------------------------------------------------
+
+
+
 INSERT INTO Members (Email, PhoneNo, FName, S_Date)
 VALUES
-('ahmed.alharthy@email.om', 91234567, 'Ahmed Al Harthy', '2025-01-15'),
-('fatma.alharthy@email.om', 92345678, 'Fatma Al Harthy', '2025-02-20'),
-('sultan.alriyami@email.om', 93456789, 'Sultan Al Riyami', '2025-03-10'),
-('noor.alnaqbi@email.om', 94567890, 'Noor Al Naqbi', '2025-04-05'),
-('yousef.alshamsi@email.om', 95678901, 'Yousef Al Shamsi', '2025-05-12');
+('ahmed@gmail.com', 91234561, 'Ahmed Ali', '2024-01-10'),
+('fatima@gmail.com', 91234562, 'Fatima Hassan', '2024-01-12'),
+('mohamed@gmail.com', 91234563, 'Mohamed Said', '2024-01-15'),
+('aisha@gmail.com', 91234564, 'Aisha Omar', '2024-01-18'),
+('khalid@gmail.com', 91234565, 'Khalid Salem', '2024-01-20'),
+('noor@gmail.com', 91234566, 'Noor Ahmed', '2024-01-22'),
+('yousef@gmail.com', 91234567, 'Yousef Ibrahim', '2024-01-25'),
+('sara@gmail.com', 91234568, 'Sara Mahmood', '2024-01-27'),
+('layla@gmail.com', 91234569, 'Layla Abdallah', '2024-02-01'),
+('omar@gmail.com', 91234570, 'Omar Nasser', '2024-02-03');
 
 -------------------------------------------------------------
 
 INSERT INTO Libraries (LName, L_Location, PhoneNo, E_Year)
 VALUES
-('Muscat Library', 'Muscat', 24567890, 2005),
-('Salalah Library', 'Salalah', 24567891, 2010),
-('Sohar Library', 'Sohar', 24567892, 2012),
-('Nizwa Library', 'Nizwa', 24567893, 2015),
-('Sur Library', 'Sur', 24567894, 2018);
-
+('Al Noor Library', 'Muscat', 24123456, 2005),
+('Al Amal Library', 'Salalah', 23214567, 2010),
+('Al Hikma Library', 'Sohar', 26891234, 1998);
 ---------------------------------------------------------
 
 INSERT INTO Staff (FName, Position, PhoneNo, FLibrary_Id)
 VALUES
-('Khalid Al Jahouri', 'Manager', 91234501, 700),
-('Maryam Al Amri', 'Librarian', 91234502, 701),
-('Omar Al Farsi', 'Assistant', 91234503, 702),
-('Laila Al Lawati', 'Librarian', 91234504, 703),
-('Hassan Al Balushi', 'Manager', 91234505, 704);
+('Hassan Ali', 'Manager', 91111111, 705),
+('Mona Said', 'Librarian', 91111112, 705),
+('Salim Omar', 'Assistant', 91111113, 706),
+('Rania Ahmed', 'Librarian', 91111114, 706),
+('Fahad Khalid', 'Manager', 91111115, 707),
+('Huda Salem', 'Assistant', 91111116, 707);
+
 
 ------------------------------------------------------------------
 
 INSERT INTO Book (ISBN, BTitle, Genre, Price, Av_Status, Shelf_Loc, FLibrary_Id, FM_Id)
 VALUES
-('978-1234567890', 'Journey in the Desert', 'Fiction', 15.50, 'TRUE', 'A1', 700, 1),
-('978-0987654321', 'History of Oman', 'Non-fiction', 20.00, 'TRUE', 'B2', 701, 2),
-('978-1112131415', 'Science Experiments', 'Reference', 25.00, 'TRUE', 'C3', 702, 3),
-('978-1213141516', 'Children Stories', 'Children', 10.50, 'TRUE', 'D4', 703, 4),
-('978-1314151617', 'World Geography', 'Non-fiction', 18.75, 'TRUE', 'E5', 704, 5);
+('978-C001','Arab History','Non-fiction',20.00,'TRUE','A1',705,26),
+('978-C002','Desert Stories','Fiction',15.00,'TRUE','A2',705,27),
+('978-C003','Science Basics','Reference',30.00,'TRUE','B1',705,28),
+('978-C004','Kids Tales','Children',12.00,'TRUE','C1',705,29),
+('978-C005','Islamic Culture','Non-fiction',25.00,'TRUE','A3',705,30),
+
+('978-C006','World Atlas','Reference',40.00,'TRUE','B2',706,31),
+('978-C007','Ocean Life','Non-fiction',18.00,'TRUE','A1',706,32),
+('978-C008','Funny Animals','Children',10.00,'TRUE','C1',706,33),
+('978-C009','Arabic Poetry','Fiction',22.00,'TRUE','A2',706,34),
+('978-C010','Math Essentials','Reference',35.00,'TRUE','B3',706,35),
+
+('978-C011','Modern Physics','Reference',45.00,'TRUE','B1',707,26),
+('978-C012','AI Basics','Non-fiction',38.00,'TRUE','A1',707,27),
+('978-C013','Short Stories','Fiction',16.00,'TRUE','A2',707,28),
+('978-C014','Learning English','Non-fiction',28.00,'TRUE','A3',707,29),
+('978-C015','Coloring Book','Children',9.00,'TRUE','C1',707,30),
+
+('978-C016','Space Journey','Fiction',19.00,'TRUE','A4',705,31),
+('978-C017','Healthy Living','Non-fiction',21.00,'TRUE','A5',705,32),
+('978-C018','Programming SQL','Reference',42.00,'TRUE','B4',706,33),
+('978-C019','Arabic Grammar','Reference',33.00,'TRUE','B2',707,34),
+('978-C020','Bedtime Stories','Children',11.00,'TRUE','C2',705,35);
 
 ------------------------------------------------------------
 
 INSERT INTO Reviews (R_Date, Comments, Rating, FB_Id, FM_Id)
 VALUES
-('2025-12-01', 'Excellent and informative book', 5, 501, 1),
-('2025-12-03', 'Interesting but a bit long', 4, 501, 2),
-('2025-12-05', 'Very useful for students', 5, 502, 3),
-('2025-12-06', 'Kids will love it', 5, 503, 4),
-('2025-12-08', 'Good reference for geography', 4, 504, 5);
+('2025-12-01', 'Excellent and informative book', 5, 513, 26),
+('2025-12-03', 'Interesting but a bit long', 4, 514, 27),
+('2025-12-05', 'Very useful for students', 5, 515, 28),
+('2025-12-06', 'Kids will love it', 5, 516, 29),
+('2025-12-08', 'Good reference for geography', 4, 517,30);
+
 
 ---------------------------------------------------------------
 
 INSERT INTO Loan (Loan_Date, Due_Date, Return_Date, LStatus, FB_Id, FM_Id)
 VALUES
-('2025-12-10', '2025-12-20', '2025-12-25', 'Issued', 501, 1),
-('2025-12-11', '2025-12-21', NULL, 'Issued', 502, 2),
-('2025-12-12', '2025-12-22', NULL, 'Issued', 503, 3),
-('2025-12-13', '2025-12-23', '2025-12-28', 'Issued', 504, 4),
-('2025-12-14', '2025-12-24', '2025-12-29', 'Issued', 505, 5);
+('2025-12-10', '2025-12-20', '2025-12-25', 'Issued', 513, 26),
+('2025-12-11', '2025-12-21', NULL, 'Issued', 514, 27),
+('2025-12-12', '2025-12-22', NULL, 'Issued', 515, 28),
+('2025-12-13', '2025-12-23', '2025-12-28', 'Issued', 516, 29),
+('2025-12-14', '2025-12-24', '2025-12-29', 'Issued', 517, 30);
 
 ------------------------------------------------------------------
 INSERT INTO Payment (P_Date, Amount, Method, FLoan_ID)
 VALUES
-('2025-12-12', 5.00, 'Cash', 31),
-('2025-12-13', 7.50, 'Card', 32),
-('2025-12-14', 6.00, 'Cash', 33),
-('2025-12-15', 4.50, 'Card', 34),
-('2025-12-16', 8.00, 'Cash', 35);
+('2025-12-12', 5.00, 'Cash', 36),
+('2025-12-13', 7.50, 'Card', 37),
+('2025-12-14', 6.00, 'Cash', 38),
+('2025-12-15', 4.50, 'Card', 39),
+('2025-12-16', 8.00, 'Cash', 40);
+
 ---------------------------------------------------------
 INSERT INTO Loan_Member_Book (FLoan_ID, FM_Id, FP_Id)
 VALUES
-(31, 1, 22),
-(32, 2, 23),
-(33, 3, 24),
-(34, 4, 25),
-(35, 5, 26);
+(36, 26, 28),
+(37, 27, 29),
+(38, 28, 30),
+(39, 29, 31),
+(40, 30, 32);
 ----------------------------------------------------------------------------------------------------------
 
 --Display all book records. 
@@ -339,3 +366,5 @@ WHERE S.Position = 'Manager';
 SELECT M.M_Id, M.FName, R.R_Date, R.Comments, R.Rating
 FROM Members M
 LEFT JOIN Reviews R ON M.M_Id = R.FM_Id;
+
+----------------------------------------------------------------------------------
